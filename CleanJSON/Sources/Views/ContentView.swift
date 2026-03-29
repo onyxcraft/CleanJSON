@@ -37,8 +37,8 @@ struct ContentView: View {
             }
         }
         .frame(minWidth: 800, minHeight: 600)
-        .onChange(of: viewModel.document.parsedJSON) { newValue in
-            treeViewModel.buildTree(from: newValue)
+        .onChange(of: viewModel.document.rawText) { _ in
+            treeViewModel.buildTree(from: viewModel.document.parsedJSON)
         }
     }
 
